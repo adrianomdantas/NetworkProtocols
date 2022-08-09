@@ -2,10 +2,13 @@
 
 # BGP  
  
+ - **Topologia**  
+    ![](/Imagens/topologia.png)  
+
 - **Fundamentos do BGP**  
     **BGP**(Border Gateway Protocol) é o protocolo usado para ligar todas as redes da internet.  
     O poder queo BGP nos dá é a capacidade de manipular os caminhos do tráfego, ex, o trafego sair por um lado e voltar por outro, no caso de ter mais de um link.  
-**Border gateway protocol version**
+**Border gateway protocol version**  
 |RCF|Date|Version|
 |:--:|:--:|:--:|
 |1105|1989|1|
@@ -33,6 +36,11 @@ O BGP é utilizamo muito mais do que como um protocolo de roteamento de internet
 - **Loop prevention**  
     Quando uma rede é divulgada para outro ASN, é divulgado também um atributo qu é o AS-Path, que é o caminho que este prefixo já percorreu, quando um AS recebe um anuncio de um prefixo que seja tenha seu própio AS, não é instalado na sua tabela de roteamento evitando o loop.  
     ![](/Imagens/BGP_img_01.png)  
-    
-iBGP x eBGP  
-COnfiguração inicial  
+
+- **iBGP x eBGP**  
+    No BGP, a vizinhança não é formada de forma dinâmica como no OSPF, é sempre de forma estática, ou seja, eu tenho que apondar quem vai ser meu vizinhol e o **AS** do meu vizinho, e isso é feio nas duas pontas.  
+    O BGP utiliza a camada (4) de transporte protocolo tcp porta 179 para se comunicas com outro roteador BGP, e não é necessário fazer uma adjacência com um roteador vizinho, pode ser feito adjacência com um roteador que está a vários saltos do meu roteador.  
+  
+![](/Imagens/BGP_img_02.png)  
+
+Configuração inicial  
